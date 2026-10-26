@@ -1,0 +1,549 @@
+{
+ "version": 1,
+ "plan": "docs/E9_2026-10-15.md",
+ "review_debt_max": 8,
+ "_note": "binka-lab's backlog: E9's lab-lane entries (P2.1 to P6.7), written at E9.P2.0. The hand-backs to binka's loop are founder tasks (E9 §3: one loop at a time). The P4 module tasks follow P4 §1's order.",
+ "tasks": [
+  {
+   "id": "E9.P2.1",
+   "title": "Scaffold and tokens: Astro 5, React, TS strict, Fontsource; tokens.css, check-tokens, check-palette; npm run check with the vendored scanner (P2 §10 step 2)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": []
+  },
+  {
+   "id": "E9.P2.2",
+   "title": "Data layer: verify-bundle, gen-types, loadTable, claim lookup; commit data/bundle after its checks (P2 §10 step 3)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P2.1"
+   ]
+  },
+  {
+   "id": "E9.P2.3",
+   "title": "Shell and the lens mechanism (P2 §10 step 4)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P2.1"
+   ]
+  },
+  {
+   "id": "E9.P2.4",
+   "title": "Claims and the chip; remark-claims; one stub module per v0.1 module (P2 §10 step 5)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P2.2",
+    "E9.P2.3"
+   ]
+  },
+  {
+   "id": "E9.P2.5",
+   "title": "The chart kit v0.1 needs (P2 §10 step 6)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P2.1"
+   ]
+  },
+  {
+   "id": "E9.P2.6",
+   "title": "The about, manifest, data-console and SD routes (P2 §10 step 7)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P2.2",
+    "E9.P2.3"
+   ]
+  },
+  {
+   "id": "E9.P2.7",
+   "title": "CI, headers and robots (P2 §10 step 8)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P2.1"
+   ]
+  },
+  {
+   "id": "E9.P2.8",
+   "title": "The Playwright suite; checkpoint: the first preview deploy behind Access (P2 §10 step 9)",
+   "kind": "dossier",
+   "lane": "checkpoint",
+   "needs": [
+    "E9.P2.4",
+    "E9.P2.5",
+    "E9.P2.6",
+    "E9.P2.7"
+   ],
+   "blocking": true,
+   "founder": {
+    "what": "Open the autorun/loop preview from a logged-out browser (only the Access login shows), look at the screenshots, sign",
+    "minutes": 30
+   }
+  },
+  {
+   "id": "E9.P3.2",
+   "title": "narrative.md copy for the six modules, the front door and the act intros; a decision card for the edit pass on the headlines and the spine",
+   "kind": "design",
+   "lane": "decision",
+   "needs": [
+    "E9.P2.8"
+   ],
+   "founder": {
+    "what": "Edit pass on the headlines and the spine",
+    "minutes": 30
+   }
+  },
+  {
+   "id": "E9.P3.3",
+   "title": "II.9 The leakage autopsy (P3)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P3.2"
+   ]
+  },
+  {
+   "id": "E9.P3.4",
+   "title": "II.7 The cost wall (P3)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P3.3"
+   ]
+  },
+  {
+   "id": "E9.P3.5",
+   "title": "III.12 The verdict ledger (P3)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P3.4"
+   ]
+  },
+  {
+   "id": "E9.P3.6",
+   "title": "III.11 Timeline and gates (P3)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P3.5"
+   ]
+  },
+  {
+   "id": "E9.P3.7",
+   "title": "IV.15 Loop architecture (P3)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P3.6"
+   ]
+  },
+  {
+   "id": "E9.P3.8",
+   "title": "IV.16 Approval boundaries and guard hooks (P3)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P3.7"
+   ]
+  },
+  {
+   "id": "E9.P3.9",
+   "title": "The front door, the /system stub and the /about copy (P3 §3)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P3.8"
+   ]
+  },
+  {
+   "id": "E9.P3.10",
+   "title": "Gate E9-G3: the proxy 60-s test, poke-test prep and the §11.3 checklist; then the full-site disclosure read and the launch steps, each on its act card",
+   "kind": "dossier",
+   "lane": "checkpoint",
+   "needs": [
+    "E9.P3.9"
+   ],
+   "blocking": true,
+   "founder": {
+    "what": "Read the G3 dossier and sign; then the full-site disclosure read and the launch steps on their act cards",
+    "minutes": 240
+   }
+  },
+  {
+   "id": "E9.BINKA.v1",
+   "title": "Hand-back: binka's loop exports the P4 trains' tables (its E9.P4.E2 to E9.P4.X)",
+   "kind": "dossier",
+   "lane": "act",
+   "needs": [
+    "E9.P3.10"
+   ],
+   "owner": "founder",
+   "founder": {
+    "what": "After the v0.1 launch, run binka's loop through E9.P4.E2 to E9.P4.X (its cards included), then answer done here",
+    "minutes": 0
+   }
+  },
+  {
+   "id": "E9.P4.II8",
+   "title": "II.8 Model bake-off and tabular saturation (P4, v0.2)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.BINKA.v1"
+   ]
+  },
+  {
+   "id": "E9.P4.II10",
+   "title": "II.10 Null models and the strategy-class screens, E5 to E7 (P4, v0.2)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P4.II8"
+   ]
+  },
+  {
+   "id": "E9.P4.v02",
+   "title": "Release v0.2: the release checkpoint, with the disclosure read on its act card, then the operator's merge (P4 §11)",
+   "kind": "dossier",
+   "lane": "checkpoint",
+   "needs": [
+    "E9.P4.II10"
+   ],
+   "blocking": true,
+   "founder": {
+    "what": "Read release v0.2's dossier and sign; the disclosure read on its act card; merge",
+    "minutes": 60
+   }
+  },
+  {
+   "id": "E9.P4.IV17",
+   "title": "IV.17 Pre-registration as code (P4, v0.5)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P4.v02"
+   ]
+  },
+  {
+   "id": "E9.P4.IV18",
+   "title": "IV.18 Case replays (P4, v0.5)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P4.IV17"
+   ]
+  },
+  {
+   "id": "E9.P4.IV19",
+   "title": "IV.19 Throughput and compute (P4, v0.5)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P4.IV18"
+   ]
+  },
+  {
+   "id": "E9.P4.IV20",
+   "title": "IV.20 Human/AI division of labour (P4, v0.5)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P4.IV19"
+   ]
+  },
+  {
+   "id": "E9.P4.IV21",
+   "title": "IV.21 From project to plugin (P4, v0.5)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P4.IV20"
+   ]
+  },
+  {
+   "id": "E9.P4.v05",
+   "title": "Release v0.5: the release checkpoint, with the disclosure read on its act card, then the operator's merge (P4 §11)",
+   "kind": "dossier",
+   "lane": "checkpoint",
+   "needs": [
+    "E9.P4.IV21"
+   ],
+   "blocking": true,
+   "founder": {
+    "what": "Read release v0.5's dossier and sign; the disclosure read on its act card; merge",
+    "minutes": 60
+   }
+  },
+  {
+   "id": "E9.P4.III13",
+   "title": "III.13 Scope-decision explorer (P4, v0.7)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P4.v05"
+   ]
+  },
+  {
+   "id": "E9.P4.III14",
+   "title": "III.14 What was learned, and what was not (P4, v0.7)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P4.III13"
+   ]
+  },
+  {
+   "id": "E9.P4.v07",
+   "title": "Release v0.7: the release checkpoint, with the disclosure read on its act card, then the operator's merge (P4 §11)",
+   "kind": "dossier",
+   "lane": "checkpoint",
+   "needs": [
+    "E9.P4.III14"
+   ],
+   "blocking": true,
+   "founder": {
+    "what": "Read release v0.7's dossier and sign; the disclosure read on its act card; merge",
+    "minutes": 60
+   }
+  },
+  {
+   "id": "E9.P4.I1",
+   "title": "I.1 Data and collector (P4, v0.9)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P4.v07"
+   ]
+  },
+  {
+   "id": "E9.P4.I2",
+   "title": "I.2 Features (P4, v0.9)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P4.I1"
+   ]
+  },
+  {
+   "id": "E9.P4.I3",
+   "title": "I.3 Labels (P4, v0.9)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P4.I2"
+   ]
+  },
+  {
+   "id": "E9.P4.I4",
+   "title": "I.4 Models and training (P4, v0.9)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P4.I3"
+   ]
+  },
+  {
+   "id": "E9.P4.I5",
+   "title": "I.5 MLOps (P4, v0.9)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P4.I4"
+   ]
+  },
+  {
+   "id": "E9.P4.I6",
+   "title": "I.6 Live inference (P4, v0.9)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P4.I5"
+   ]
+  },
+  {
+   "id": "E9.P4.lessons",
+   "title": "/lessons, the lessons coda (P4, v0.9)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P4.I6"
+   ]
+  },
+  {
+   "id": "E9.P4.v09",
+   "title": "Release v0.9: the release checkpoint, with the disclosure read on its act card, then the operator's merge (P4 §11)",
+   "kind": "dossier",
+   "lane": "checkpoint",
+   "needs": [
+    "E9.P4.lessons"
+   ],
+   "blocking": true,
+   "founder": {
+    "what": "Read release v0.9's dossier and sign; the disclosure read on its act card; merge",
+    "minutes": 60
+   }
+  },
+  {
+   "id": "E9.P5.1",
+   "title": "The glossary: data, lint, <Term>, /glossary (P5)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P4.v09"
+   ]
+  },
+  {
+   "id": "E9.P5.2",
+   "title": "Lens copy: 63 notes, a decision card for the 9-note sample, then the rest, the switcher and the markers (P5)",
+   "kind": "design",
+   "lane": "decision",
+   "needs": [
+    "E9.P5.1"
+   ],
+   "founder": {
+    "what": "The 9-note lens sample",
+    "minutes": 20
+   }
+  },
+  {
+   "id": "E9.P5.3",
+   "title": "Tours (P5)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P5.2"
+   ]
+  },
+  {
+   "id": "E9.P5.4",
+   "title": "The a11y, mobile and dark-mode checklist as tests, then the fixes (P5)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P5.3"
+   ]
+  },
+  {
+   "id": "E9.P5.5",
+   "title": "Performance: the fixes, then Lighthouse made blocking (P5)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P5.4"
+   ]
+  },
+  {
+   "id": "E9.P5.6",
+   "title": "OG images and the small polish (P5)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P5.5"
+   ]
+  },
+  {
+   "id": "E9.P5.7",
+   "title": "Manual-audit prep (an act card for the screen-reader and phone checks), the P5 summary, and the v1.0 release checkpoint",
+   "kind": "dossier",
+   "lane": "checkpoint",
+   "needs": [
+    "E9.P5.6"
+   ],
+   "blocking": true,
+   "founder": {
+    "what": "The screen-reader and phone checks; read the v1.0 dossier and sign; the disclosure read on its act card; merge",
+    "minutes": 120
+   }
+  },
+  {
+   "id": "E9.BINKA.p6",
+   "title": "Hand-back: binka's loop writes the private talk tracks (its E9.P6.6)",
+   "kind": "dossier",
+   "lane": "act",
+   "needs": [
+    "E9.P5.7"
+   ],
+   "owner": "founder",
+   "founder": {
+    "what": "Run binka's loop through E9.P6.6, then answer done here",
+    "minutes": 0
+   }
+  },
+  {
+   "id": "E9.P6.1",
+   "title": "The tester ask and protocol: a comms card, then an act card for running the human test (P6)",
+   "kind": "dossier",
+   "lane": "act",
+   "needs": [
+    "E9.BINKA.p6"
+   ],
+   "founder": {
+    "what": "Send the tester ask; run the human 60-s test",
+    "minutes": 120
+   }
+  },
+  {
+   "id": "E9.P6.2",
+   "title": "The README template and its CI check (P6)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P6.1"
+   ]
+  },
+  {
+   "id": "E9.P6.3",
+   "title": "/one-pager and its PDF build (P6)",
+   "kind": "impl",
+   "lane": "review",
+   "needs": [
+    "E9.P6.2"
+   ]
+  },
+  {
+   "id": "E9.P6.4",
+   "title": "The video script, captures, captions and cut list; then an act card for recording and uploading (P6)",
+   "kind": "design",
+   "lane": "act",
+   "needs": [
+    "E9.P6.3"
+   ],
+   "founder": {
+    "what": "Record the voice-over and upload the video",
+    "minutes": 120
+   }
+  },
+  {
+   "id": "E9.P6.5",
+   "title": "The LinkedIn, CV and igor-web drafts, igor-web on a branch (P6)",
+   "kind": "design",
+   "lane": "comms",
+   "needs": [
+    "E9.P6.4"
+   ],
+   "founder": {
+    "what": "Read and publish each piece",
+    "minutes": 30
+   }
+  },
+  {
+   "id": "E9.P6.7",
+   "title": "Gate E9-G4: the announcement card, with every asset's status (P6 §10)",
+   "kind": "dossier",
+   "lane": "checkpoint",
+   "needs": [
+    "E9.P6.5"
+   ],
+   "blocking": true,
+   "founder": {
+    "what": "Read the G4 card; each piece is read before it goes out; announce",
+    "minutes": 60
+   }
+  }
+ ]
+}

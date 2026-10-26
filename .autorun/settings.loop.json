@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "deny": [
+      "Edit(.autorun/config.env)",
+      "Edit(.autorun/POLICY.md)",
+      "Edit(.autorun/guard_rules.py)",
+      "Edit(.autorun/settings.loop.json)",
+      "Edit(.autorun/backlog.json)",
+      "Edit(docs/disclosure_policy.md)",
+      "Edit(tools/scan.py)",
+      "Edit(CLAUDE.md)",
+      "Edit(.claude/**)",
+      "Read(~/dev/binka/**)",
+      "Edit(~/dev/binka/**)",
+      "Read(~/data/**)",
+      "Read(~/.config/binka-showcase/**)",
+      "Read(~/.ssh/**)",
+      "Read(~/.claude/projects/-home-igor-dev-binka/**)",
+      "Read(~/.claude/projects/-home-igor-dev-binka-py/**)",
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Bash(git push *)",
+      "Bash(ssh *)",
+      "Bash(scp *)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(wrangler *)",
+      "Bash(npx wrangler *)",
+      "Bash(gh *)"
+    ]
+  }
+}
