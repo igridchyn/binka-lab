@@ -1,0 +1,308 @@
+# Binka Lab glossary seed (P0 §7). Each marked term's tooltip and its /glossary entry come from here (P5 §2).
+#
+# Written in binka by E9.P0.6 (2026-10-16); it moves to binka-lab as content/glossary.yaml at E9.P2.0, where it is
+# public, so the disclosure policy binds it. Decision record: SD-SC-17.
+#
+# Fields (P0 §7, with P5 §2.1's id and aliases):
+#   id       the slug a <Term id=…> mark uses; stable, never reused
+#   term     the name as the copy writes it
+#   aliases  other names the copy uses for it, and for nothing else (optional; plurals and hyphens need none)
+#   short    the tooltip: at most twenty words, written for a reader outside the field, using no other entry's term
+#   long     optional, shown on /glossary only
+#   link     the module that explains it best: /<act>#m<n> for module n (P5 §5's anchor)
+#
+# No definition holds a number: nothing here is bound to a claim (narrative §1.1). P5 adds `acts` at build and grows
+# the list with P4's modules (P5 §2.1).
+
+# ---------------------------------------------------------------------------------------------------------------
+# The seed list (P0 §7)
+# ---------------------------------------------------------------------------------------------------------------
+
+- id: kline
+  term: kline
+  aliases: [candle]
+  short: "One time slice of market data: a coin's opening, highest, lowest and closing price, and its volume."
+  link: /system#m1
+
+- id: secondwise
+  term: secondwise
+  aliases: [per-second archive]
+  short: "Market data recorded every second, rather than summarised minute by minute."
+  long: "The collector writes it, and the datasets for validation, testing and the backtests are built from it, scaled exactly as the training data was."
+  link: /system#m1
+
+- id: touch-label
+  term: touch label
+  aliases: [bracket]
+  short: "The target: which of two price levels, above or below, the price touches first within a set time, if either."
+  long: "The two levels are the bracket: a take-profit above and a stop-loss below, each set on its own, and a forward window. Each minute is labelled by the level touched first, or as no touch if neither is reached within the window."
+  link: /system#m3
+
+- id: dir-auc
+  term: dir-AUC
+  aliases: [directional AUC]
+  short: "How well the model's scores tell rises from falls, as opposed to merely spotting that a big move is coming."
+  long: "A model can look skilled by predicting when prices will move a lot, without knowing which way. The directional score sets that timing aside and asks about the direction. A coin flip scores the bottom of its useful range, and on some label settings the score rose partly because of how the labels were built."
+  link: /science#m7
+
+- id: sharpe
+  term: Sharpe
+  aliases: [Sharpe ratio]
+  short: "Average return divided by how much returns vary. On this site it is per trade unless it says annualised."
+  long: "Per trade, it is the mean return of a trade after costs over the spread of those returns, which is the scale of the touch-trading work. The later strategy screens report annualised figures, which are on a different scale, so the two are never compared directly."
+  link: /science#m7
+
+- id: bps
+  term: bps
+  aliases: [basis points]
+  short: "Basis points: hundredths of a percent, the unit trading costs are quoted in."
+  link: /science#m7
+
+- id: round-trip-cost
+  term: round-trip cost
+  aliases: [round trip]
+  short: "Everything a trade costs to open and close: fees each way, the buy-sell price gap, and the price it moves."
+  long: "The cost model charges the fee on each side, plus twice the sum of half the gap between the best buying and selling prices and an allowance for the price moving against the order. The costs were measured, or modelled where they couldn't be, and frozen before the tune that used them."
+  link: /science#m7
+
+- id: taker
+  term: taker
+  short: "A trader who trades at once against an order already waiting. Takers usually pay the higher fee."
+  link: /science#m7
+
+- id: maker
+  term: maker
+  short: "A trader who posts an order and waits for someone to trade against it. Makers usually pay less."
+  link: /science#m7
+
+- id: look-ahead
+  term: look-ahead
+  aliases: [look-ahead leakage]
+  short: "Using information at a moment when it didn't yet exist, which makes a backtest look better than reality."
+  long: "Here it was an alignment slip: one series was keyed by each bar's close time and another by its open time, so a feature read a price from the next minute."
+  link: /science#m9
+
+- id: causal
+  term: causal
+  aliases: [causal substrate]
+  short: "Built only from what was known at each moment, as a live system would have seen it."
+  long: "The causal version of a feature or dataset is the one with the look-ahead removed. A result counts only if it holds on the causal version."
+  link: /science#m9
+
+- id: as-built
+  term: as built
+  short: "As the code was first run, including the flaw found in it later."
+  long: "On the leakage autopsy, as built means with the minute of future data still in the features. The page's toggle switches between as built and the corrected version."
+  link: /science#m9
+
+- id: sealed-window
+  term: sealed window
+  aliases: [seal]
+  short: "Data locked in code: the programs that load data refuse to read it until a signed decision opens it."
+  long: "A seal governs reads from the day it was declared. Results recorded before that are part of the record, and they are shown with their window labelled. Every contact with a sealed window on record is disclosed, including contacts that went around the loaders."
+  link: /operating-model#m17
+
+- id: pre-registration
+  term: pre-registration
+  short: "Fixing before the first result, usually in code, what will count as a pass and what as a failure."
+  long: "The commits show the order: the one that declares how a result will be read comes before the one that first reports it. A commit proves that order in the history, not that nothing was looked at beforehand; the seals are that defence. The record also shows where a criterion was set late."
+  link: /operating-model#m17
+
+- id: kill-bar
+  term: kill bar
+  short: "The threshold, set in advance, that a result is judged against."
+  long: "From the strategy-class screens on, each threshold is a number in code with a pinned fingerprint, so changing it afterwards fails the test suite. For the earlier work, the record shows where a criterion was set late."
+  link: /science#m10
+
+- id: no-reading
+  term: NO-READING
+  short: "The test couldn't measure what it was built to measure, so it neither passed nor failed the idea."
+  long: "It isn't a weaker form of failure. A screen that couldn't read proved nothing either way, so it is never counted with the kills, and each one says why it couldn't read."
+  link: /verdicts#m12
+
+- id: kill
+  term: KILL
+  short: "The test measured what it was built to measure, and the result fell on the wrong side of its threshold."
+  long: "A screen's verdict, read by code written before its first result. Closing the direction is then a signed decision."
+  link: /verdicts#m12
+
+- id: no-go
+  term: NO-GO
+  short: "An epic's verdict that the direction it tested does not go forward; the decision is signed, not computed."
+  link: /verdicts#m12
+
+- id: advance
+  term: ADVANCE
+  short: "A verdict that a test's result cleared its threshold, so the direction goes on to its next, harder test."
+  link: /verdicts#m12
+
+- id: marginal
+  term: MARGINAL
+  short: "A verdict between going forward and stopping: it allows a limited further round of work before the final call."
+  link: /science#m9
+
+- id: null-model
+  term: null model
+  aliases: [randomised-entry null, random-entry null]
+  short: "A deliberately naive version of a strategy, such as entering at random times, that the real one is compared against."
+  long: "The randomised-entry version keeps the strategy's trades but moves their timing to chance. If the real strategy sits in the middle of those random versions, its timing added nothing."
+  link: /science#m10
+
+- id: psi
+  term: PSI
+  aliases: [population stability index]
+  short: "How much the typical values of an input moved between two periods; a large score means the inputs changed."
+  long: "It measures drift: a model built on one period's inputs can't be trusted on a period whose inputs look different."
+  link: /science#m10
+
+- id: qlike
+  term: QLIKE
+  short: "A score for forecasts of how much prices will swing, which punishes predicting calm before a storm hardest."
+  link: /science#m10
+
+- id: vrp
+  term: VRP
+  aliases: [volatility risk premium, variance risk premium]
+  short: "The amount by which option prices tend to overstate the price swings that follow, which option sellers try to collect."
+  link: /science#m10
+
+- id: scope-decision
+  term: scope decision
+  aliases: [SD entry]
+  short: "A numbered entry in the decision log: a choice, defect or conclusion, with its reason and what would reopen it."
+  long: "When a narrower path is taken, the entry records what was traded away and the condition that would restore it."
+  link: /verdicts#m13
+
+- id: gate
+  term: gate
+  aliases: [program gate]
+  short: "A decision point between phases of the program that only I sign, after reading the evidence and a recommendation."
+  link: /verdicts#m11
+
+- id: dossier
+  term: dossier
+  short: "The evidence pack the agent builds for my review: the results, the thresholds they faced, and usually a recommendation."
+  link: /verdicts#m11
+
+- id: approval-boundary
+  term: approval boundary
+  aliases: [boundary]
+  short: "A kind of action the agent may never take alone, such as spending or publishing. It hands it to me."
+  long: "Each boundary has a letter. The rules ask every pause or request for my answer at a boundary to name it, so the record can be searched by letter; some records don't name one."
+  link: /operating-model#m16
+
+- id: guard-hook
+  term: guard hook
+  short: "Code that checks each command the agent tries to run, and blocks the kinds the rules name before they run."
+  long: "The written policy is prose the agent reads; the hook is the part it can't talk its way past. It covers a short list of commands. Most rules are prose, or checks the supervisor runs after the session."
+  link: /operating-model#m16
+
+- id: autorun-item
+  term: autorun item
+  aliases: [item, agent item]
+  short: "One planned unit of work, done by the agent and ending in a commit."
+  long: "Under the supervisor, each item starts in a fresh session, and the supervisor checks it before accepting the work; an interrupted item is resumed or repaired in further sessions. For most of the earlier work, I started the sessions myself."
+  link: /operating-model#m15
+
+# ---------------------------------------------------------------------------------------------------------------
+# The options and trend screens' terms (P0 §7, from E9-G0 Q3)
+# ---------------------------------------------------------------------------------------------------------------
+
+- id: iron-fly
+  term: iron fly
+  short: "A bet that prices stay calm: options sold near today's price, with options further out bought to cap the loss."
+  link: /science#m10
+
+- id: dvol
+  term: DVOL
+  short: "An index, published by an options exchange, of the price swings bitcoin or ether options imply for the next month."
+  long: "It is an index level, not a price anyone trades at. A book priced at the index looked better than the same book priced at the options' own prices."
+  link: /science#m10
+
+- id: option-mark
+  term: option mark
+  short: "An options exchange's reference price for an option, which may not match any trade that actually happened."
+  link: /science#m10
+
+- id: trade-tape
+  term: trade tape
+  short: "The record of trades that actually happened, each with its price and time."
+  long: "The free tape was the data the later options screen could afford. Where no trade happened, it couldn't price that part of the position."
+  link: /operating-model#m18
+
+- id: coverage-bar
+  term: coverage bar
+  aliases: [coverage]
+  short: "The share of a position's parts and hours the data must be able to price before the result counts."
+  link: /science#m10
+
+- id: hurdle-rate
+  term: hurdle rate
+  aliases: [hurdle]
+  short: "The return a strategy must beat to be worth its risk, such as a safe interest rate plus a margin."
+  link: /science#m10
+
+- id: limb
+  term: limb
+  short: "One part of a test with several parts, each with its own threshold fixed in advance."
+  link: /science#m10
+
+- id: reachability
+  term: reachability
+  short: "Whether a test could come out either way on this data; if it couldn't, its reading doesn't count as evidence."
+  long: "The rules ask for each part's reachability to be worked out from how the test is built and stated before its result. The record shows where that came late, or missed a case."
+  link: /science#m10
+
+- id: would-kill
+  term: would KILL
+  short: "A failing part of a test, reported but not decided, because the test as a whole couldn't measure."
+  long: "It appears under a NO-READING. The parts are shown as reported, and the verdict stays NO-READING."
+  link: /verdicts#m12
+
+- id: perp
+  term: perpetual future
+  aliases: [perp]
+  short: "A crypto futures contract with no expiry; payments between its long and short holders keep its price near the coin's."
+  link: /science#m10
+
+- id: funding
+  term: funding
+  aliases: [funding rate]
+  short: "The regular payment between long and short holders of a no-expiry futures contract that keeps its price near the coin's."
+  long: "It is a cost or an income of holding the contract, so the futures costs on this site count it."
+  link: /science#m10
+
+- id: trend-rule
+  term: trend rule
+  aliases: [long/flat]
+  short: "A rule that holds a coin while its recent return is positive, and stays out when it isn't."
+  link: /science#m10
+
+- id: volatility-targeting
+  term: volatility targeting
+  aliases: [vol target]
+  short: "Sizing a position so its expected swings stay at a set level: smaller when markets are wild, larger when calm."
+  link: /science#m10
+
+- id: point-in-time-universe
+  term: point-in-time universe
+  short: "The set of coins as it stood on each past date, including ones later delisted, so hindsight picks no winners."
+  link: /science#m10
+
+- id: verdict-vehicle
+  term: verdict vehicle
+  short: "A way of holding the strategy, such as futures or the coins themselves, on which the verdict is read."
+  long: "A vehicle reported beside them, but not a verdict vehicle, is shown and never decides anything."
+  link: /science#m10
+
+- id: mar
+  term: MAR
+  aliases: [MAR ratio]
+  short: "Yearly return divided by the worst fall from a peak: how much a strategy earns for the pain it causes."
+  link: /science#m10
+
+- id: holdout
+  term: holdout
+  short: "Coins or months set aside for the final test, and never used to build or tune what it tests."
+  long: "Set aside is not the same as unseen: months set aside for one screen could have been working data for an earlier one, and the record says where that happened."
+  link: /operating-model#m17

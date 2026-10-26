@@ -1,0 +1,14 @@
+# the autorun loop's transient state
+/.autorun/state/
+# node and Astro
+node_modules/
+dist/
+.astro/
+# test output
+playwright-report/
+test-results/
+coverage/
+# local environment files are never committed
+.env
+.env.*
+.DS_Store
